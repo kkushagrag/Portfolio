@@ -1,0 +1,270 @@
+// import React, { useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import { Github, ExternalLink, Code, Calendar, User } from "lucide-react";
+// import { motion } from "framer-motion";
+// import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
+// import "@coreui/coreui/dist/css/coreui.min.css";
+// import FerrariImage from "../assets/2025-Formula1-Ferrari-SF-25-003-1600.jpg";
+// import Screenshot from "../assets/Screenshot 2024-10-19 020809.png";
+
+// // Enhanced project data with project titles as IDs
+// const projectsData = {
+//   supergains: {
+//     title: "SuperGains",
+//     description:
+//       "A premium online supplement retailer offering high-quality fitness products.",
+//     longDescription: `
+//       SuperGains is an e-commerce platform designed for fitness enthusiasts, providing a seamless shopping experience.
+//       Features include:
+//       • Secure user authentication
+//       • Advanced product search and filtering
+//       • Real-time inventory management
+//       • Secure Stripe payment processing
+//       • Order tracking & admin dashboard
+//     `,
+//     githubLink: "https://github.com/kkushagrag/SuperGains",
+//     liveLink: "https://supergains-demo.vercel.app",
+//     techStack: [
+//       "HTML",
+//       "CSS",
+//       "JavaScript",
+//       "Tailwind CSS",
+//       "MySQL",
+//       "MongoDB",
+//     ],
+//     features: [
+//       "User authentication",
+//       "Shopping cart",
+//       "Secure payment processing",
+//       "Admin dashboard",
+//       "Responsive design",
+//     ],
+//     timeline: "3 months",
+//     team: "Solo project",
+//     screenshots: [FerrariImage, Screenshot],
+//   },
+//   carbuy: {
+//     title: "CarBuy",
+//     description:
+//       "A Java-based console application that simplifies car buying, management, and tracking for buyers and sellers. Users can browse cars, compare specifications, check prices, and make purchases through an interactive interface.",
+//     longDescription: `
+//       CarBuy is a console-based application built in Java to streamline the car purchasing and management process.
+//       Features include:
+//       • Secure user authentication with role-based access (Buyer, Seller, Admin)
+//       • Car browsing with advanced search and filtering
+//       • Vehicle comparison based on specifications and pricing
+//       • Purchase and financing options with EMI calculations
+//       • Car ownership management (service history, insurance tracking)
+//       • Resale and trade-in functionality for used vehicles
+//     `,
+//     githubLink: "https://github.com/kkushagrag/CarBuy",
+//     techStack: [
+//       "Java",
+//       "JDBC",
+//       "MySQL",
+//       "OOP Principles",
+//       "File Handling",
+//       "Multithreading",
+//     ],
+//     features: [
+//       "User authentication & role management",
+//       "Car search and filtering",
+//       "Car purchasing & EMI calculations",
+//       "Ownership tracking & service reminders",
+//       "Used car resale & trade-in system",
+//     ],
+//     timeline: "2 months",
+//     team: "Solo project",
+//     screenshots: [FerrariImage, Screenshot],
+//   },
+
+//   "workout-tracker": {
+//     title: "Workout Tracker",
+//     description:
+//       "A comprehensive fitness tracking application designed for Android devices, empowering users to monitor workouts, track progress, and visualize body metrics over time.",
+//     longDescription: `
+//       Workout Tracker caters to individuals of all fitness levels, from beginners starting their journey to experienced athletes optimizing their routines. Key features include:
+//       • Predefined exercise lists for calisthenics, weight lifting, and cardio
+//       • Custom exercises to personalize workouts
+//       • Favorite exercises for quick access
+//       • Workout logging and body metric tracking
+//       • Visual graphs for progress analysis
+//       • Calendar view for reviewing workout history
+
+//       Future implementations:
+//       • Integration with wearable fitness devices
+//       • Social media sharing for motivation and community building
+//       • AI-driven personalized workout plans and meal recommendations
+//       • Gamification elements to boost engagement
+//       • Virtual personal training with video tutorials and real-time feedback
+//     `,
+//     githubLink: "https://github.com/kkushagrag/Workout-Tracker",
+//     liveLink: "https://fittrack-demo.vercel.app",
+//     techStack: ["Java", "Android Studio", "SQLite"],
+//     features: [
+//       "User authentication",
+//       "Workout tracking",
+//       "Custom exercise creation",
+//       "Progress visualization",
+//       "Calendar-based workout history",
+//     ],
+//     timeline: "2 months",
+//     team: "Solo project",
+//     screenshots: [FerrariImage, Screenshot],
+//   },
+// };
+
+// const ProjectDetailsPage = () => {
+//   const { projectId } = useParams(); // Get project ID from the URL
+//   const project = projectsData[projectId];
+
+//   // Ensure the page scrolls to the top when opened
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, []);
+
+//   if (!project) {
+//     return (
+//       <div className="min-h-screen flex items-center justify-center text-gray-700">
+//         <h2 className="text-2xl font-bold">Project not found</h2>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="min-h-screen bg-gray-50">
+//       {/* Hero Section */}
+//       <header className=" text-black py-32">
+//         <div className="max-w-6xl mx-auto px-4 text-center">
+//           <motion.h1
+//             className="text-7xl md:text-8xl lg:text-9xl font-serif mb-12"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.2 }}
+//           >
+//             {project.title}.
+//           </motion.h1>
+//           <motion.p
+//             className="text-xl text-zinc-800 max-w-3xl font-serif mx-auto text-justify"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.4 }}
+//           >
+//             {project.description}
+//           </motion.p>
+//         </div>
+//       </header>
+
+//       {/* Main Content */}
+//       <main className="max-w-6xl mx-auto px-4">
+//         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+//           {/* Left Column - Project Details */}
+//           <div className="lg:col-span-2 space-y-8">
+//             {/* Screenshots Carousel */}
+//             <div className="bg-white p-6 rounded-lg shadow-lg">
+//               <h2 className="text-2xl font-bold mb-4">Project Preview</h2>
+//               <CCarousel controls>
+//                 {project.screenshots.map((screenshot, index) => (
+//                   <CCarouselItem key={index}>
+//                     <CImage
+//                       className="d-block w-100 rounded-lg"
+//                       src={screenshot}
+//                       alt={`${project.title} preview ${index + 1}`}
+//                     />
+//                   </CCarouselItem>
+//                 ))}
+//               </CCarousel>
+//             </div>
+
+//             {/* Project Description */}
+//             <div className="bg-white p-6 rounded-lg shadow-lg ">
+//               <h2 className="text-2xl font-bold mb-4">About the Project</h2>
+//               <p className="text-gray-600 whitespace-pre-line">
+//                 {project.longDescription}
+//               </p>
+//             </div>
+
+//             {/* Features List */}
+//             <div className="bg-white p-6 rounded-lg shadow-lg">
+//               <h2 className="text-2xl font-bold mb-4">Key Features</h2>
+//               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+//                 {project.features.map((feature, index) => (
+//                   <li key={index} className="flex items-start gap-2">
+//                     <div className="mt-1 text-blue-600">
+//                       <Code className="h-5 w-5" />
+//                     </div>
+//                     <span>{feature}</span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </div>
+//           </div>
+
+//           {/* Right Column - Project Info & Links */}
+//           <div className="space-y-6">
+//             {/* Project Links */}
+//             <div className="bg-white p-6 rounded-lg shadow-lg">
+//               <h2 className="text-xl font-bold mb-4">Project Links</h2>
+//               <div className="space-y-4">
+//                 <a
+//                   href={project.githubLink}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+//                 >
+//                   <Github className="h-5 w-5" />
+//                   <span>View Source Code</span>
+//                 </a>
+//                 <a
+//                   href={project.liveLink}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+//                 >
+//                   <ExternalLink className="h-5 w-5" />
+//                   <span>Visit Live Site</span>
+//                 </a>
+//               </div>
+//             </div>
+
+//             {/* Technical Details */}
+//             <div className="bg-white p-6 rounded-lg shadow-lg">
+//               <h2 className="text-xl font-bold mb-4">Technical Details</h2>
+//               <div className="space-y-4">
+//                 <div>
+//                   <h3 className="text-sm font-semibold text-gray-500 mb-2">
+//                     Tech Stack
+//                   </h3>
+//                   <div className="flex flex-wrap gap-2">
+//                     {project.techStack.map((tech) => (
+//                       <span
+//                         key={tech}
+//                         className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+//                       >
+//                         {tech}
+//                       </span>
+//                     ))}
+//                   </div>
+//                 </div>
+//                 <div className="flex items-center gap-2 text-gray-600">
+//                   <Calendar className="h-4 w-4" />
+//                   <span>Timeline: {project.timeline}</span>
+//                 </div>
+//                 <div className="flex items-center gap-2 text-gray-600">
+//                   <User className="h-4 w-4" />
+//                   <span>Team: {project.team}</span>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default ProjectDetailsPage;
+
+
+
+
