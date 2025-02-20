@@ -98,7 +98,6 @@ const projectsData = {
     longDescription:
       "Workout Tracker is a comprehensive fitness tracking application designed for Android devices. It empowers users to monitor their workouts, track progress, and visualize changes in body weight and body fat percentage over time. The app caters to individuals of all fitness levels, from beginners starting their journey to experienced athletes seeking to optimize their routines.",
     githubLink: "https://github.com/kkushagrag/Workout-Tracker",
-    liveLink: "https://fittrack-demo.vercel.app",
     techStack: [
       "Java",
       "Android Studio",
