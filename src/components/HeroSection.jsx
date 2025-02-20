@@ -2,7 +2,7 @@ import React from "react";
 import { MapPin } from "lucide-react";
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
-import faceImage from "../assets/IMG_3847.JPG";
+import faceImage from "../assets/IMG_3847.jpg";
 
 const HeroSection = () => {
   return (
